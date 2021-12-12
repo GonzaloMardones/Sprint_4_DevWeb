@@ -68,3 +68,8 @@
         background: $button-active-blue;
     }
 }
+
+.entry__btn{
+    display: flex;
+    flex-direction: column;
+}

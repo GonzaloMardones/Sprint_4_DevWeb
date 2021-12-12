@@ -1,0 +1,99 @@
+// .webapp__main-content{
+//     display: flex;
+// }
+.webapp__main-content{
+    background-color: $dark-grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    // height: 100vh;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    // width: 100vh;
+}
+.webapp__new-entry{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    flex-direction: column;    
+    transition: color .3s ease;
+
+    &:hover{
+        color: darken($color: white, $amount: 20);
+    }
+}
+.webapp__entries{
+    margin-top: 30px;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+
+}
+
+.webapp__main-form{
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center; 
+    // flex-direction: column;
+    border: 1px solid red;
+    height: 30vh;
+    width: 50vh;
+}
+
+.webapp__main-content-button{
+    display: flex;
+    justify-content: center;
+    margin: 2vh;
+}
+
+
+.webapp__main-input{
+    margin: 1vh;
+    height: 20vh;
+    width: 40vh;
+}
+
+.webapp__entry{
+    background-color: white;
+    color: $dark-grey;
+    border-radius: 4px;
+    display: flex;
+    margin-bottom: 10px;
+    overflow: hidden;
+    height: 10vh;
+    width: 60vh;
+
+}
+.webapp__entry-picture{
+    height: 75px;
+    width: 75px;
+}
+.webapp__entry-title{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.webapp__entry-content{
+    padding: 10px;
+}
+
+.webapp__entry-body{
+    padding:10px;
+}
+.webapp__entry-date-box{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: center;
+}
+
+.webapp__entry-date-box span{
+    font-size: 12px;
+}
