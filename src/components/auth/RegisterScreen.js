@@ -1,18 +1,56 @@
 import React from 'react'
 import {Link} from 'react-router-dom' 
+import { useForm } from '../../hooks/useForm'
+import validator from 'validator' 
 
 export const RegisterScreen = () => {
+
+    const [formValues, handleInputChange] = useForm({
+        name: 'Gonzalo',
+        email: 'gonzalo-a@hotmail.com',
+        password: '12346',
+        confirm_password: '12346'
+
+    }) 
+
+    const {name,email,password,confirm_password} = formValues
+
+
+    const handleRegister = (e) =>{
+        e.preventDefault();
+
+        if(isFormValid()){
+            console.log("Formulario Correcto")
+        }
+    }
+
+    const isFormValid = () =>{
+        if(name.trim().length === 0){
+            console.log('Name is required ')
+            return false
+        }else if(!validator.isEmail(email)){
+            console.log('Email is not valid')
+            return false
+         }else if(password !== confirm_password || password.length<5){
+             console.log('Password is incorrect')
+             return false
+         }
+        return true
+    }
+
     return (
         <>
         <h1 className="auth__title">Register</h1>
 
-        <form>
+        <form onSubmit={handleRegister}> 
             <input
                 type="text"
                 placeholder="Name"
                 name="name"
                 className="auth__input"
                 autoComplete="off"
+                value={name}
+                onChange={handleInputChange}
             />
 
             <input
@@ -21,12 +59,16 @@ export const RegisterScreen = () => {
                 name="email"
                 className="auth__input"
                 autoComplete="off"
+                value={email}
+                onChange={handleInputChange}                
             />
             <input
                 type="password"
                 placeholder="Password"
                 name="password"
                 className="auth__input"
+                value={password}
+                onChange={handleInputChange}                
             />   
 
             <input
@@ -34,14 +76,17 @@ export const RegisterScreen = () => {
                 placeholder="Confirm Password"
                 name="confirm_password"
                 className="auth__input"
+                value={confirm_password}
+                onChange={handleInputChange}                
             />   
 
             <button
                 type="submit"
                 className="btn btn-primary btn-block mb-5"
+                // onClick={handleRegister}
                 // disabled={true}
             >
-                Login
+                Register
             </button>
 
             {/* <div className="auth__social-networks">
