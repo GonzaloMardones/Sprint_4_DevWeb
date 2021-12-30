@@ -1,12 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom' 
-import {startEmailPassword, startGoogleLogin } from '../../actions/auth';
+import {startLoginEmailPassword, startGoogleLogin } from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 export const LoginScreen = () => {
 
     const dispatch =  useDispatch()
+    const {loading} = useSelector(state => state.ui)
 
 
     const [formValues, handleInputChange ] = useForm({
@@ -18,7 +19,7 @@ export const LoginScreen = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(startEmailPassword (email,password))
+        dispatch(startLoginEmailPassword (email,password))
     }
 
     const handleGoogleLogin = () =>{
@@ -50,7 +51,7 @@ export const LoginScreen = () => {
                 <button
                     type="submit"
                     className="btn btn-primary btn-block"
-                    // disabled={true}
+                    disabled={loading}
                 >
                     Login
                 </button>
