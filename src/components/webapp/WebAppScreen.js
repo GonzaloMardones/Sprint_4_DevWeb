@@ -1,10 +1,19 @@
 import React from 'react'
 import { WebAppEntries } from './WebAppEntries'
-
+import {useDispatch} from  'react-redux'
+import {startLogout} from '../../actions/auth'
 export const WebAppScreen = () => {
+
+
+    const dispatch = useDispatch()
+
+    const handleLogout = ( ) =>{
+        dispatch(startLogout())
+    }
+
     return (
-        
         <div className="webapp__main-content">
+
             <form className="webapp__main-form">
             <div 
                 className="webapp__entry-picture"
@@ -30,6 +39,13 @@ export const WebAppScreen = () => {
                     >
                         Login
                     </button>
+                    <button
+                        type="submit"
+                        className="btn btn-primary entry__btn"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </button>                    
             </div>
 
             </form>
@@ -46,6 +62,5 @@ export const WebAppScreen = () => {
                 </div> */}
             <WebAppEntries/>
         </div>
-
     )
 }
