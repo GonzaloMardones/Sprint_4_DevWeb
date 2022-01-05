@@ -1,7 +1,6 @@
 import React from 'react'
 import { WebAppEntries } from './WebAppEntries'
 import {useDispatch} from  'react-redux'
-import {startLogout} from '../../actions/auth'
 import { useSelector } from 'react-redux'
 import { startNewNote } from '../../actions/notes'
 export const WebAppScreen = () => {
@@ -12,9 +11,9 @@ export const WebAppScreen = () => {
 
     const dispatch = useDispatch()
 
-    const handleLogout = ( ) =>{
-        dispatch(startLogout())
-    }
+    // const handleLogout = ( ) =>{
+    //     dispatch(startLogout())
+    // }
 
 
     const handleAddNewNote = (e) =>{
@@ -55,13 +54,13 @@ export const WebAppScreen = () => {
                         >
                             Enter
                         </button>
-                        <button
+                        {/* <button
                             type="submit"
                             className="btn btn-primary entry__btn"
                             onClick={handleLogout}
                         >
                             Logout
-                        </button>  
+                        </button>   */}
 
                 </div>
 

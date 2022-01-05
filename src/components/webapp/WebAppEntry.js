@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-export const WebAppEntry = ({id, date, title, body, url}) => {
+export const WebAppEntry = ({id, username, date, body, url, likes}) => {
 
     const noteDate = moment(date)
 
@@ -22,11 +22,11 @@ export const WebAppEntry = ({id, date, title, body, url}) => {
 
             <div className="webapp__entry-body">
                 <p className="webapp__entry-title">
-                    USERNAME 
+                    {username} - <span>{noteDate.format("L") }</span> 
                 </p>
-                <p className="webapp__entry-title">
-                    {title} - <span>{noteDate.format("L") }</span>
-                </p>
+                {/* <p className="webapp__entry-title">
+                    {title} 
+                </p> */}
 
                 <p className="webapp__entry-content">
                     {body}

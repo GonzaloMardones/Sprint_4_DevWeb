@@ -9,6 +9,7 @@ export const startNewNote = () =>{
         const newNote = {
             title: '',
             body: '',
+            likes: 0,
             date: new Date().getTime(),
         }
 
