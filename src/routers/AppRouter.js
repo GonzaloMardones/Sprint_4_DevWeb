@@ -5,13 +5,15 @@ import {
     Redirect
   } from "react-router-dom";
   
-import { WebAppScreen} from '../components/webapp/WebAppScreen';
+// import { WebAppScreen} from '../components/webapp/WebAppScreen';
 import { AuthRouter } from './AuthRouter';
 import {firebase} from '../firebase/firebaseConfig';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
+import { startLoadingNotes } from '../actions/notes';
+import { WebAppContent } from '../components/webapp/WebAppContent';
 
 
 export const AppRouter = () => {
@@ -23,10 +25,12 @@ export const AppRouter = () => {
 
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged( (user) =>{
+        firebase.auth().onAuthStateChanged( async(user) =>{
             if (user?.uid){
                 dispatch(login(user.uid, user.displayName))
                 setIsLoggedIn(true)
+
+                dispatch(startLoadingNotes(user.uid))
             }
             else{
                 setIsLoggedIn(false)
@@ -54,7 +58,7 @@ export const AppRouter = () => {
                     <PrivateRoute 
                         exact path="/"
                         isAuthenticated={isLoggedIn}
-                        component={WebAppScreen}
+                        component={WebAppContent}
                     />
 
                     <Redirect to="/auth/login" />                  

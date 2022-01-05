@@ -2,14 +2,15 @@
 //     display: flex;
 // }
 .webapp__main-content{
-    background-color: $dark-grey;
+    background-color: $dark-purple;
     color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     flex-direction: column;
-    // height: 100vh;
+    
+    height: 100vh;
     // padding-left: 10px;
     // padding-right: 10px;
     // width: 100vh;
@@ -61,7 +62,7 @@
 
 .webapp__entry{
     background-color: white;
-    color: $dark-grey;
+    color: $dark-purple;
     border-radius: 4px;
     display: flex;
     margin-bottom: 10px;
