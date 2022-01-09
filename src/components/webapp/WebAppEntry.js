@@ -1,12 +1,26 @@
 import React from 'react'
 import moment from 'moment'
+import {useDispatch} from  'react-redux'
+import { activeNote } from '../../actions/notes'
+import { useSelector } from 'react-redux'
 
 export const WebAppEntry = ({id, username, date, body, url, likes}) => {
 
+    const dispatch = useDispatch()
     const noteDate = moment(date)
+    const {name} = useSelector(state => state.auth)
+
+    const handleEntryClick = ()=>{
+        dispatch(
+                activeNote(id,{
+                    date, body, url
+                }))
+    }
 
     return (
-        <div className="webapp__entry pointer">
+        <div className="webapp__entry pointer"
+             onClick={handleEntryClick}
+        >
            {
             url &&
             <div 
@@ -22,21 +36,17 @@ export const WebAppEntry = ({id, username, date, body, url, likes}) => {
 
             <div className="webapp__entry-body">
                 <p className="webapp__entry-title">
-                    {username} - <span>{noteDate.format("L") }</span> 
+                    {name} - <span>{noteDate.format("L") }</span> 
                 </p>
-                {/* <p className="webapp__entry-title">
-                    {title} 
-                </p> */}
-
                 <p className="webapp__entry-content">
                     {body}
                 </p>                
             </div>
-            {/* <div className="webapp__entry-date-box">
-                <span>Monday</span>
-                <h4>28</h4>
-            </div> */}
-        
+            <i 
+                className="fa fa-remove"
+                // name={category}
+                // onClick ={handleRemoveItem}    
+            ></i>
         </div>
     )
 }

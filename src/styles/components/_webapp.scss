@@ -2,6 +2,7 @@
 //     display: flex;
 // }
 .webapp__main-content{
+
     background-color: $dark-purple;
     color: white;
     display: flex;
@@ -37,14 +38,21 @@
 }
 
 .webapp__main-form{
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: center;
-    // align-items: center; 
-    // flex-direction: column;
+    // display: flex;
+    // flex-wrap: wrap;
+    // // justify-content: center;
+    // // align-items: center; 
+    // // flex-direction: column;
     border: 1px solid red;
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
     height: 30vh;
     width: 60vh;
+        
 }
 
 .webapp__main-content-button{
@@ -57,7 +65,7 @@
 .webapp__main-input{
     margin: 1vh;
     height: 20vh;
-    width: 40vh;
+    width: 95%;
 }
 
 .webapp__entry{
@@ -72,8 +80,12 @@
 
 }
 .webapp__entry-picture{
-    height: 75px;
-    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 75px;
+    // width: 75px;
+    // border-radius: 50%;
 }
 .webapp__entry-title{
     font-size: 14px;
