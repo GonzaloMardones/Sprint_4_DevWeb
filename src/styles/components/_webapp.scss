@@ -66,6 +66,7 @@
     margin: 1vh;
     height: 20vh;
     width: 95%;
+    border: 1px solid white;
 }
 
 .webapp__entry{
@@ -109,4 +110,38 @@
 
 .webapp__entry-date-box span{
     font-size: 12px;
+}
+
+.webapp-input-card {
+    background-color: white;
+}
+.webapp_input_color-container{
+    display: flex;
+    // justify-content: end;
+    align-items: center;
+}
+
+.webbapp-section{
+    width: 60vh;
+    height: 50vh;
+}
+
+.webapp__main-content-profile{
+    background-color: $dark-purple;
+    width: 100%;
+    color: white;
+    display: flex;
+    // justify-content: center;
+    // align-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    height: 100vh;    
+}
+.webbapp_section-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vh;
+    height: 20vh;
 }

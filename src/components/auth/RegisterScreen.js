@@ -13,10 +13,10 @@ export const RegisterScreen = () => {
     const {msgError}= useSelector(state => state.ui)
 
     const [formValues, handleInputChange] = useForm({
-        name: 'Gonzalo',
-        email: 'gonzalo-a@hotmail.com',
-        password: '12346',
-        confirm_password: '12346'
+        name: '',
+        email: '',
+        password: '',
+        confirm_password: ''
 
     }) 
 
@@ -106,25 +106,9 @@ export const RegisterScreen = () => {
             <button
                 type="submit"
                 className="btn btn-primary btn-block mb-5"
-                // onClick={handleRegister}
-                // disabled={true}
             >
                 Register
             </button>
-
-            {/* <div className="auth__social-networks">
-                <p>Login with social networks</p>
-                <div 
-                    className="google-btn"
-                >
-                    <div className="google-icon-wrapper">
-                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                    </div>
-                    <p className="btn-text">
-                        <b>Sign in with google</b>
-                    </p>
-                </div>
-            </div> */}
 
             <Link 
                 to="/auth/login"

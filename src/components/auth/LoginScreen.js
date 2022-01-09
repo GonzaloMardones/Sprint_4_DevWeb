@@ -11,15 +11,15 @@ export const LoginScreen = () => {
 
 
     const [formValues, handleInputChange ] = useForm({
-        email: 'gonzalo.mardones10@gmail.com',
-        password: '123456' , 
+        email: '',
+        password: '' , 
          
     }) 
     const {email, password} = formValues  
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(startLoginEmailPassword (email,password))
+        dispatch(startLoginEmailPassword(email,password))
     }
 
     const handleGoogleLogin = () =>{

@@ -3,7 +3,11 @@ import { loadNotes } from "../helpers/loadNotes"
 import { types} from '../types/types'
 import Swal from 'sweetalert2'
 
+
 export const startNewNote = (bodyNote) =>{    
+
+    // react-webapp
+
     return async(dispatch, getState) =>{
         const uid = getState().auth.uid // const {uid} = getState().auth
 

@@ -14,6 +14,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { startLoadingNotes } from '../actions/notes';
 import { WebAppContent } from '../components/webapp/WebAppContent';
+import { WebAppContentProfile } from '../components/webapp/WebAppContentProfile';
 
 
 export const AppRouter = () => {
@@ -60,7 +61,11 @@ export const AppRouter = () => {
                         isAuthenticated={isLoggedIn}
                         component={WebAppContent}
                     />
-
+                    <PrivateRoute 
+                        exact path="/profile"
+                        isAuthenticated={isLoggedIn}
+                        component={WebAppContentProfile}
+                    />
                     <Redirect to="/auth/login" />                  
                 </Switch>
             </div>

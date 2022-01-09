@@ -1,14 +1,14 @@
 import React from 'react'
 import {useDispatch} from  'react-redux'
 import {startLogout} from '../../actions/auth'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import { WebAppProfileScreen } from './WebAppProfileScreen'
 
-export const WebAppHeader = () => {
+export const WebAppHeaderProfile = () => {
 
     const dispatch = useDispatch()
-    // const {name} = useSelector(state => state.auth)    
+    const {name} = useSelector(state => state.auth)    
     const handleLogout = ( ) =>{
         dispatch(startLogout())
     }
@@ -20,14 +20,10 @@ export const WebAppHeader = () => {
             {/* <p>{name}</p>  */}
             <div className="webapp__entry-picture">    
             <Link 
-                to="/profile"
+                to="/"
                 className="link"
-            >
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzkkRrH-rt3lfZU1VIa0dBXVFhPqU77AYaw&usqp=CAU" 
-                    className="header-image" 
-                    alt="imagen"
-                />      
+            >    
+                <p className="header-enlace"> Home - {name} </p>
             </Link>            
                
           
@@ -40,7 +36,6 @@ export const WebAppHeader = () => {
                 Logout
             </button>              
             </div>
-
 
         </header>
     )

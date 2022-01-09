@@ -3,6 +3,7 @@ import { WebAppEntries } from './WebAppEntries'
 import {useDispatch} from  'react-redux'
 import { useSelector } from 'react-redux'
 import { startNewNote } from '../../actions/notes'
+import Swal from 'sweetalert2'
 export const WebAppScreen = () => {
 
     // const {name} = useSelector(state => state.auth)
@@ -13,16 +14,17 @@ export const WebAppScreen = () => {
 
     const handleAddNewNote = (e) =>{
         e.preventDefault()
-        dispatch(startNewNote(body))
         if(body.trim().length>2){
+            dispatch(startNewNote(body))
             setBody('')
-        }        
+        }
+        else{
+            Swal.fire('Error', "El contenido del mensaje debe ser mayor a dos letras", 'error')
+        }
     }
 
     const handleInputChange = ( e ) =>{
         setBody(e.target.value)
-        console.log(body)
-
     }
 
 
@@ -41,16 +43,30 @@ export const WebAppScreen = () => {
                         >
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGzkkRrH-rt3lfZU1VIa0dBXVFhPqU77AYaw&usqp=CAU" width="75" height="75" alt="imagen"/>
                         </a>
-                    </div>                                    
-                    <input
-                        type="text"
-                        placeholder="What’s happening?"
-                        name="texto"
-                        value={body}
-                        className="webapp__main-input"
-                        autoComplete="off"
-                        onChange={handleInputChange}
-                    />
+                    </div>
+                    <div className="webapp-input-card">
+                        <input
+                            type="text"
+                            placeholder="What’s happening?"
+                            name="texto"
+                            value={body}
+                            className="webapp__main-input"
+                            autoComplete="off"
+                            onChange={handleInputChange}
+                        />
+                    </div> 
+                    {/* <div className="webapp_input_color-container">
+                        <div>
+                            <button 
+                                className="webapp_input_color-btn" 
+                                onClick={handleInputClick}   
+                            >
+                            Cargar Imagen
+                            </button>
+                        </div>                                   
+                    </div> */}
+
+
                 <div></div>
                 <div className="webapp__main-content-button">
                     <button
